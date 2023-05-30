@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cyberpunk Homepage</title>
+    <link rel="stylesheet" href="./style.css">
+	<meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./rollingBackground.js"></script>
+  <script>
+      // Fetch live weather updates for San Antonio
+      $.get("https://api.openweathermap.org/data/2.5/weather?q=San+Antonio&appid=abe9e39386231bb41aa5cf02a1b7ec91&units=imperial", function(response) {
+        // Display current weather conditions
+        var html = "<h2>Weather in San Antonio</h2>";
+        html += "<p>Current temperature: " + response.main.temp + "&deg;F</p>";
+        html += "<p>Feels like: " + response.main.feels_like + "&deg;F</p>";
+        html += "<p>Conditions: " + response.weather[0].description + "</p>";
+        $("#weather").append(html);
+      });
+  </script>
+  </head>
+  <body>
+    <h1>Cyberpunk Homepage</h1>
+    <div id="nav">
+      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
+      <a href="https://bard.google.com/" target="_blank">Bard</a>
+      <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+      <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>
+	    <a href="https://www.bbc.com/news target=" target="_blank">BBC News</a>
+	    <a href="https://www.reuters.com/news/us" target="_blank">Reuters</a>
+      <a href="https://www.gmail.com/" target="_blank">Gmail</a>
+    </div>
+    <div id="search">
+      <form action="https://duckduckgo.com/" target="_blank">
+        <input type="text" name="q" placeholder="Search DuckDuckGo">
+        <button type="submit">Search</button>
+      </form>
+      <form action="https://www.google.com/search" target="_blank" >
+        <input type="text" name="q" placeholder="Search Google">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+	<!-- <h2>Live San Antonio Weather Feeds</h2>
+		<ul>
+			<li><a href="https://www.accuweather.com/en/us/san-antonio-tx/78205/weather-forecast/351198" target="_blank">AccuWeather</a></li>
+			<li><a href="https://weather.com/weather/today/l/78205:4:US" target="_blank">The Weather Channel</a></li>
+			<li><a href="https://www.wunderground.com/weather/us/tx/san-antonio" target="_blank">Weather Underground</a></li>
+		</ul>
+     </h2> -->
+    </div>
+  	<div id="weather"></div>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+/* Cyberpunk theme */
+body {
+    background-color: #000000;
+    color: #00ff00;
+    font-family: Arial, sans-serif;
+    background-image: url("./valentin-beauvais-yVUQlyRlJSw-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-size: auto; */
+    background-position: center; /* or background-position: top left; */
+  }
+  
+  h1 {
+    color: #ff6600;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  /* Navigation links */
+  #nav {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap:10px
+  }
+
+  #nav a {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #ff6600;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  #nav a:hover {
+    background-color: #ff6600;
+    color: #000000;
+    transform: scale(1.1);
+  }
+
+  /* Search bars */
+  #search {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  #search input[type="text"] {
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    width: 400px;
+  }
+
+  #search button {
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background-color: #ff6600;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  #search button:hover {
+    background-color: #ffffff;
+    color: #ff6600;
+  }
+
+  /* News and weather feeds */
+  #feeds {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  #feeds iframe {
+    border: none;
+    width: 400px;
+    height: 400px;
+  }
+
+  #weather {
+    margin: 55px 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #ff6600;
+    border-radius: 20px;
+    display: inline-block;
+    padding: 20px;
+  }
+
+  /* FOR REFERENCE FOR #weather
+  #nav a {
+    color: #ffffff;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+  } */

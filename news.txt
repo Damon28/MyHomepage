@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Personal News and Weather Page</title>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Define news sources
+      var sources = [
+        { name: "HackerNews", url: "https://hacker-news.firebaseio.com/v0/topstories.json" },
+        { name: "MSNBC", url: "https://newsapi.org/v2/top-headlines?sources=msnbc&apiKey=9804b540477e49c28885d7545c384f2e" },
+        { name: "CNN", url: "https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=9804b540477e49c28885d7545c384f2e" },
+        { name: "BBC", url: "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=9804b540477e49c28885d7545c384f2e" },
+        { name: "Reuters", url: "https://newsapi.org/v2/top-headlines?sources=reuters&apiKey=9804b540477e49c28885d7545c384f2e" },
+        { name: "Fox News", url: "https://newsapi.org/v2/top-headlines?sources=fox-news&apiKey=9804b540477e49c28885d7545c384f2e" }
+      ];
+
+      // Loop through news sources and fetch top stories
+      for (var i = 0; i < 3; i++) {
+        var source = sources[i];
+        $.get(source.url, function(response) {
+          // Display top 3 stories from each source
+          var stories = response.articles.slice(0, 3);
+          var html = "<h2>" + source.name + "</h2>";
+          html += "<ul>";
+          for (var j = 0; j < stories.length; j++) {
+            var story = stories[j];
+            html += "<li><a href=\"" + story.url + "\">" + story.title + "</a></li>";
+          }
+          html += "</ul>";
+          $("#news").append(html);
+        });
+      }
+
+      // Fetch live weather updates for San Antonio
+      $.get("https://api.openweathermap.org/data/2.5/weather?q=San+Antonio&appid=abe9e39386231bb41aa5cf02a1b7ec91&units=imperial", function(response) {
+        // Display current weather conditions
+        var html = "<h2>Weather in San Antonio</h2>";
+        html += "<p>Current temperature: " + response.main.temp + "&deg;F</p>";
+        html += "<p>Feels like: " + response.main.feels_like + "&deg;F</p>";
+        html += "<p>Conditions: " + response.weather[0].description + "</p>";
+        $("#weather").append(html);
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>My Personal News and Weather Page</h1>
+  <div id="news"></div>
+  <div id="weather"></div>
+</body>
+</html>
